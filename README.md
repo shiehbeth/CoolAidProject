@@ -1,6 +1,8 @@
 # CoolAidProject
 CoolAid is a community-focused application designed to help people during extreme heat waves. The app connects donors who provide heat relief resources with those in need, utilizing a map-based system for location matching.
 
+https://bethshieh-coolaidproject.onrender.com/
+
 ## Features
 - Loading Page: Welcomes users with a responsive loading screen.
 - Login Page: Enables user authentication.
