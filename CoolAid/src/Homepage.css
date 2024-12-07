@@ -1,0 +1,69 @@
+.big-text {
+    font-size: 50px;
+    margin: 20px;
+    margin-bottom: 40px;
+    color: #7bbbe5;
+    text-align: center;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 20px;
+}
+
+.image-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-row {
+    display: flex;
+    flex-direction: row;
+}
+
+#big-text,
+#food-resource,
+#water-resource,
+#fan-resource,
+#shelter-resource {
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeInAnimation ease 3s;
+    animation-fill-mode: forwards;
+}
+
+#food-resource, #big-text {
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+}
+
+#water-resource {
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+}
+
+#fan-resource {
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+}
+
+#shelter-resource {
+    animation-delay: 1.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
