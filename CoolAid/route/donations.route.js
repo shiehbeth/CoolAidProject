@@ -66,6 +66,11 @@ router.put('/update', async function (req, res) {
             return res.status(400).send("Not enough amount available to subtract.");
         }
 
+        if (newAmount === 0) {
+            await donationsModel.deleteDonation(lat, lng);
+            return res.status(200).json({ message: "Donation deleted successfully." });
+        }
+
         donation.amount = newAmount;
         await donation.save();
 
@@ -75,5 +80,33 @@ router.put('/update', async function (req, res) {
         return res.status(500).send("Error updating donation.");
     }
 });
+
+router.delete('/delete', async function (req, res) {
+    const { lat, lng } = req.body;
+
+    if (!lat || !lng) {
+        return res.status(400).send("Missing required fields: lat and lng");
+    }
+
+    try {
+        const donation = await donationsModel.DonationsModel.findOne({ lat, lng });
+
+        if (!donation) {
+            return res.status(404).send("Donation not found with the provided lat and lng.");
+        }
+
+        if (donation.amount > 0) {
+            return res.status(400).send("Cannot delete donation as the amount is greater than zero.");
+        }
+
+        await donationsModel.DonationsModel.deleteOne({ lat, lng });
+
+        return res.status(200).send("Donation deleted successfully.");
+    } catch (error) {
+        console.error("Error deleting donation:", error);
+        return res.status(500).send("Error deleting donation.");
+    }
+});
+
 
 module.exports = router;

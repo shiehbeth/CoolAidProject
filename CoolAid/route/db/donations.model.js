@@ -25,11 +25,16 @@ function updateDonation(lat, lng, amount) {
     ).exec();
 }
 
+function deleteDonation(lat, lng) {
+    return DonationsModel.findOneAndDelete({ lat: lat, lng: lng }).exec();
+}
+
 
 module.exports = {
     addDonation,
     getAllDonations,
     findDonationByItem,
     updateDonation,
+    deleteDonation,
     DonationsModel,
 }
