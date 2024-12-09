@@ -39,7 +39,6 @@ export default function Homepage() {
                             alt="shelter resource"
                             id="shelter-resource"/>
                     </div>
-
                 </div>
             </div>
         </div>
